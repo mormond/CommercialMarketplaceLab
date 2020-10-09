@@ -16,10 +16,11 @@ This lab will introduce you to some of the essential concepts and terminology of
 This lab introduces some fundamental concepts and how to choose the best offer type to match a particular solution. The accompanying labs will take you through the steps to create and publish an offer on the commercial marketplace.
 
 * [Lab 1: Introduction to the commercial marketplace](readme.md)
-* Lab 2: Publishing a VM Offer
-* Lab 3: Publishing an Azure Application Solution Template Offer
-* Lab 4: Publishing an Azure Application - Managed Application Offer
-* Lab 5: Publishing a SaaS Application Offer
+* [Lab 2: Selecting your offer type](offertype.md)
+* [Lab 2: Publishing a VM Offer](vmoffer.md)
+* [Lab 3: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
+* [Lab 4: Publishing an Azure Application - Managed Application Offer](managedapp.md)
+* [Lab 5: Publishing a SaaS Application Offer](saasapp.md)
 
 ## Terminology
 
@@ -41,6 +42,7 @@ As you might expect, the commercial marketplace has its own vocabulary to descri
 * **Test drive** - a *test drive* is a pre-canned environment that is hosted in the publisher's Azure subscription and allows potential customers to evaluate the solution before purchase.
 * **Preview audience** - during the publishing process, an *offer* can be shared with a *preview audience* before it is finally published. Useful for testing purposes.
 * **Private offers** - a *private offer* is a plan that is made available to a designated set of customers. This allows for scenarios such as negotiated pricing, private terms & conditions and specialised configurations.
+* **Hidden offers** - designed only to be consumed by other *offers*, they are hidden in the commercial marketplace so as not to be discoverable. Think of them as building blocks.
 * **Lead management** - *Offers* need to be connected to a lead management system so publishers can be notified about customers interested in deploying their *offers*. This is typically a CRM system but can be a simple Azure table or webhook.
 * **Categories** - each *offer* is listed in a [category or categories](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type#categories) to aid discoverability. Categories are specific to Azure Marketplace and AppSource.
 * **Metered Billing** - a billing mechanism that uses signals from the solution to advance custom meters. Used to create more sophisticated billing models.
@@ -56,11 +58,11 @@ The following offer types are available through Partner Center for ISV solutions
 * [IoT Edge module offer](https://docs.microsoft.com/en-us/azure/marketplace/iot-edge-module)
 * [SaaS app offer](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer)
 
-In these labs we will focus on three main offer types; Virtual Machine, Azure Apps and SaaS app offers.
+In these labs we will focus on three main offer types; **Virtual Machine**, **Azure Apps** and **SaaS app** offers.
 
 ## Virtual Machine Offer
 
-The *Virtual Machine offer* is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of only a single VM. Anything more complex requires an *Azure Apps offer*.
+The *Virtual Machine offer* is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of a single VM. Anything more complex requires an *Azure Apps offer*.
 
 When a customer 'purchases' a *VM offer*, the VM will be deployed into the customer's Azure subscription. As a consequence, VM offers can only be published in *Azure Marketplace* (not *AppSource*).
 
@@ -90,14 +92,4 @@ Transact *SaaS App Offers* can be billed as either *flat rate* or *per user*. If
 
 Each plan can be created with a free trial option giving you the option to offer customers a 1 month period free of charge.
 
-## Selecting Your Offer Type
-
-Hopefully the above will have given you a good feel for the characteristics of the different offer types. In these labs we are focussing on the main offer types that have provisioning and transact capability; *VM Offer*, *Azure App Offer* and *SaaS App Offer*.
-
-Your first decision point will likely be how the solution is deployed. If it's a SaaS application that runs in the publisher's Azure subscription then it will be a *SaaS App Offer*.
-
-If the solution gets deployed into the customer subscription then it will be either a *VM Offer* or an *Azure App Offer*. If it's a single virtual machine it will be a *VM Offer*..
-
-If it's more than a single virtual machine then it comes down to who will manage the solution. If the customer will be responsible the best match is an *Azure App Offer - Solution Template*. If the customer wants it to be managed on their behalf it will be an *Azure App Offer - Managed Application*.
-
-Note the above limitations with respect to *Azure App Offers*. Solution templates can be made transactable by referencing *VM Offers*. Managed applications grant the customer limited access and require the solution to be managed on their behalf.
+Next: [Selecting Your Offer Type](offertype.md)
