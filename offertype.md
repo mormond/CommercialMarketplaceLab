@@ -26,10 +26,10 @@ Note the limitations in Lab 1 with respect to *Azure App Offers*. Solution templ
 
 ## Next
 
-* [Lab 2: Publishing a VM Offer](vmoffer.md)
-* [Lab 3: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
-* [Lab 4: Publishing an Azure Application - Managed Application Offer](managedapp.md)
-* [Lab 5: Publishing a SaaS Application Offer](saasapp.md)
+* [Lab 3: Publishing a VM Offer](vmoffer.md)
+* [Lab 4: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
+* [Lab 5: Publishing an Azure Application - Managed Application Offer](managedapp.md)
+* [Lab 6: Publishing a SaaS Application Offer](saasapp.md)
 
 ## Back
 

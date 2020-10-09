@@ -17,10 +17,10 @@ This lab introduces some fundamental concepts and how to choose the best offer t
 
 * [Lab 1: Introduction to the commercial marketplace](readme.md)
 * [Lab 2: Selecting your offer type](offertype.md)
-* [Lab 2: Publishing a VM Offer](vmoffer.md)
-* [Lab 3: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
-* [Lab 4: Publishing an Azure Application - Managed Application Offer](managedapp.md)
-* [Lab 5: Publishing a SaaS Application Offer](saasapp.md)
+* [Lab 3: Publishing a VM Offer](vmoffer.md)
+* [Lab 4: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
+* [Lab 5: Publishing an Azure Application - Managed Application Offer](managedapp.md)
+* [Lab 6: Publishing a SaaS Application Offer](saasapp.md)
 
 ## Terminology
 
