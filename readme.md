@@ -35,10 +35,17 @@ As you might expect, the commercial marketplace has its own vocabulary to descri
   * An *offer* is the vehicle for listing on the *commercial marketplace*. It is a container for all aspects relating to the listing. The listing will appear in one of the *storefronts*.
 * Plan
   * *Offers* contain plans which describe the scope (eg in which markets is it available, is it available to everyone or specific customers) and pricing (when applicable).
-* Transact Offer
-  * A *transact offer* is one which is transacted through Microsoft's commerce capabilities and thus delivers an end-to-end experience from discovery to purchase to delivery. Microsoft facilitates the exchange of money for a software licence on behalf of the publisher.
-* Testdrive
-  * A *testdrive* is a pre-canned environment that is hosted in the publisher's Azure subscription and allows potential customers to evaluate the solution before purchase.
+* Listing Options
+  * Transact Offer
+    * An offer which is transacted through Microsoft's commerce capabilities and thus delivers an end-to-end experience from discovery to purchase to delivery. Microsoft facilitates the exchange of money for a software licence on behalf of the publisher.
+  * List Offer
+    * Simple listing of your solution that enables a customer to express interest via *Lead management*.
+  * Trial Offer
+    * Allow customers to trial your solution for a limited period at no cost before they purchase.
+  * BYOL Offer
+    * BYOL (Bring Your Own Licence) offers enhance the discoverability and automate the provisioning of your solution in a customer subscription. The financial transaction and licence compliance is the publisher responsibility.
+* Test drive
+  * A *test drive* is a pre-canned environment that is hosted in the publisher's Azure subscription and allows potential customers to evaluate the solution before purchase.
 * Preview audience
   * During the publishing process, an *offer* can be shared with a *preview audience* before it is finally published. Useful for testing purposes.
 * Private offers
@@ -59,4 +66,26 @@ The following offer types are available through Partner Center for ISV solutions
 * [IoT Edge module offer](https://docs.microsoft.com/en-us/azure/marketplace/iot-edge-module)
 * [SaaS app offer](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer)
 
-We will focus on three main offer types; Virtual Machine, Azure Apps and SaaS app offers.
+In these labs we will focus on three main offer types; Virtual Machine, Azure Apps and SaaS app offers.
+
+## Virtual Machine Offer
+
+The *Virtual Machine offer* is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of only a single VM. Anything more complex requires an *Azure Apps offer*.
+
+When a customer 'purchases' a *VM offer*, the VM will be deployed into the customer's Azure subscription. As a consequence, VM offers can only be published in *Azure Marketplace* (not *AppSource*).
+
+*VM offers* support the *Transact Offer* type. They also support the *BYOL Offer* type (and, by offering limited time licences via a *BYOL Offer*, they also support free trials). A *Test drive* option is also available.
+
+Transact *VM Offers* are billed on a usage-based PAYG (Pay As You Go) model. Each plan can be created with a free trial option giving you the option to offer customers a 1 / 3 / 6 mth period with no licence fees.
+
+## Azure Apps Offer
+
+The *Azure Apps Offer* has two distinct flavours; solution template and managed application.
+
+The solution template is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM Offers* which are transactable.
+
+The [managed app](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview) is a collection of Azure resource described by an ARM template which will be deployed into the customer subscription to be operated as a managed service (typically managed by the Publisher on behalf od the customer). The customer has limited access to the resources deployed by a managed app. A *Managed App offer* is transactable and can be billed as a flat fee or using metered billing.
+
+## SaaS Offer
+
+## Selecting Your Offer Type
