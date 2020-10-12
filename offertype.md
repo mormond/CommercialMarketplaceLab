@@ -22,7 +22,7 @@ Note the limitations in Lab 1 with respect to *Azure App Offers*. Solution templ
 
 * An Azure subscription (required)
 * Azure CLI (required)
-* A [Partner Center account](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account) with the appropriate permissions (some of the material can be completed without Partner Center access)
+* A [Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Next
 

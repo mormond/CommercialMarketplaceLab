@@ -7,7 +7,7 @@ This lab will introduce you to some of the essential concepts and terminology of
 ## Background Information
 
 * [The Commercial Marketplace documentation](https://docs.microsoft.com/azure/marketplace/overview)
-* [What is Partner Center](https://support.microsoft.com/en-us/help/4499930/partner-center-overview)
+* [What is Partner Center](https://support.microsoft.com/help/4499930/partner-center-overview)
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)
 * [AppSource](https://appsource.microsoft.com/)
 
@@ -28,7 +28,7 @@ As you might expect, the commercial marketplace has its own vocabulary to descri
 
 * **Publisher** - the owner of the solution IP who wants to make it available on the commercial marketplace.
 * **Customer** - the target audience for the solution who will acquire it via the commercial marketplace.
-* **Storefront** - the *commercial marketplace* has a single backend with [multiple storefronts](https://docs.microsoft.com/en-us/azure/marketplace/overview#commercial-marketplace-online-stores). Published solutions will be listed in one or more *storefronts*.
+* **Storefront** - the *commercial marketplace* has a single backend with [multiple storefronts](https://docs.microsoft.com/azure/marketplace/overview#commercial-marketplace-online-stores). Published solutions will be listed in one or more *storefronts*.
 * **Azure Marketplace** - a *storefront* for solutions aimed at IT professionals.
 * **AppSource** - a *storefront* for solutions aimed at business decision makers.
 * **Offer** - an *offer* is the vehicle for listing on the *commercial marketplace*. It is a container for all aspects relating to the listing. The listing will appear in one of the *storefronts*.
@@ -44,19 +44,19 @@ As you might expect, the commercial marketplace has its own vocabulary to descri
 * **Private offers** - a *private offer* is a plan that is made available to a designated set of customers. This allows for scenarios such as negotiated pricing, private terms & conditions and specialised configurations.
 * **Hidden offers** - designed only to be consumed by other *offers*, they are hidden in the commercial marketplace so as not to be discoverable. Think of them as building blocks.
 * **Lead management** - *Offers* need to be connected to a lead management system so publishers can be notified about customers interested in deploying their *offers*. This is typically a CRM system but can be a simple Azure table or webhook.
-* **Categories** - each *offer* is listed in a [category or categories](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type#categories) to aid discoverability. Categories are specific to Azure Marketplace and AppSource.
+* **Categories** - each *offer* is listed in a [category or categories](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#categories) to aid discoverability. Categories are specific to Azure Marketplace and AppSource.
 * **Metered Billing** - a billing mechanism that uses signals from the solution to advance custom meters. Used to create more sophisticated billing models.
 
 ## Offer Types
 
 The following offer types are available through Partner Center for ISV solutions.
 
-* [Virtual Machine offer](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-virtual-machines)
-* [Azure Apps offer - Solution Template](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-solution-templates)
-* [Azure Apps offer - Managed Application](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-managed-apps)
-* [Container image offer](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-containers)
-* [IoT Edge module offer](https://docs.microsoft.com/en-us/azure/marketplace/iot-edge-module)
-* [SaaS app offer](https://docs.microsoft.com/en-us/azure/marketplace/plan-saas-offer)
+* [Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines)
+* [Azure Apps offer - Solution Template](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates)
+* [Azure Apps offer - Managed Application](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps)
+* [Container image offer](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
+* [IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/iot-edge-module)
+* [SaaS app offer](https://docs.microsoft.com/azure/marketplace/plan-saas-offer)
 
 In these labs we will focus on three main offer types; **Virtual Machine**, **Azure Apps** and **SaaS app** offers.
 
@@ -78,9 +78,9 @@ Azure App Offers support the *Transact* listing type (see below). They also supp
 
 The *Azure Apps Offer" has two distinct flavours; solution template and managed application.
 
-* The solution template offer is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM Offers* which are transactable.
+* The solution template offer is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM Offers* which are transactable.
 
-* The [managed app](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/overview) offer is a collection of Azure resource described by an ARM template which will be deployed into the customer subscription to be operated as a managed service (typically managed by the Publisher on behalf of the customer). The customer has limited access to  resources deployed by a managed app. A *Managed App offer* is transactable and can be billed as a flat fee or using *metered billing*.
+* The [managed app](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview) offer is a collection of Azure resource described by an ARM template which will be deployed into the customer subscription to be operated as a managed service (typically managed by the Publisher on behalf of the customer). The customer has limited access to  resources deployed by a managed app. A *Managed App offer* is transactable and can be billed as a flat fee or using *metered billing*.
 
 ## SaaS App Offer
 
