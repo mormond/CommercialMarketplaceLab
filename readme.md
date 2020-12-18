@@ -63,35 +63,29 @@ In these labs we will focus on three main offer types; **Virtual Machine**, **Az
 
 ## Virtual Machine Offer
 
-The *Virtual Machine offer* is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of a single VM. Anything more complex requires an *Azure Apps offer*.
+The *Virtual Machine offer* (or *VM offer*) is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of a single VM. Anything more complex requires an *Azure Apps offer*. *Virtual Machine offers* can only be listed in *Azure Marketplace*, not *AppSource*.
 
-When a customer 'purchases' a *VM offer*, the VM will be deployed into the customer's Azure subscription. As a consequence, VM offers can only be published in *Azure Marketplace* (not *AppSource*).
-
-*VM offers* support the *Transact* listing type. They also support the *BYOL* listing type (and, by offering limited time licences via a *BYOL* listing, they also support free trials). A *Test drive* option is also available.
-
-Transact *VM Offers* are billed on a usage-based PAYG (Pay As You Go) model. Each plan can be created with a free trial option giving you the option to offer customers a 1 / 3 / 6 month period with no licence fees.
+For further information, see [Lab 4: Publishing a VM Offer](lab4-vmoffer.md)
 
 ## Azure Apps Offer
 
-The *Azure Apps Offer* is used to deploy and transact a more complex solution than a single VM. When a customer 'purchases' an *Azure Apps Offer*, the solution will be deployed into the customer's Azure subscription. As a consequence, *Azure Apps Offers* can only be published in *Azure Marketplace* (not *AppSource*).
+The *Azure Apps offer* is used to deploy and transact a more complex solution than a single VM. *Azure Apps offers* can only be listed in *Azure Marketplace*, not *AppSource*.
 
-Azure App Offers support the *Transact* listing type (see below). They also support the *Free* and *BYOL* listing types (and, by offering limited time licences via a *BYOL* listing, support free trials).
+The *Azure Apps offer* has two distinct flavours; *solution template* and *managed application*.
 
-The *Azure Apps Offer" has two distinct flavours; solution template and managed application.
+* The *solution template* offer is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM offers* which are transactable.
 
-* The solution template offer is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM Offers* which are transactable.
+   For further information, see [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
 
-* The [managed app](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview) offer is a collection of Azure resource described by an ARM template which will be deployed into the customer subscription to be operated as a managed service (typically managed by the Publisher on behalf of the customer). The customer has limited access to  resources deployed by a managed app. A *Managed App offer* is transactable and can be billed as a flat fee or using *metered billing*.
+* The *[managed app](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview)* offer is a collection of Azure resources described by an [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) deployed into the customer subscription to be operated as a managed service.
+
+   For further information, see [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
 
 ## SaaS App Offer
 
-The *SaaS App Offer* differs from the *Virtual Machine Offer* and *Azure App Offer* as no resources are deployed in the customer subscription. As such, the publisher must charge both for the software licence and the underlying Azure resource costs used to deliver the solution. *SaaS App Offers* can be listed in both the *Azure Marketplace* and *AppSource*.
+The *SaaS App offer* differs from the *Virtual Machine offer* and *Azure App offer* as no resources are deployed in the customer subscription. As such, the publisher must charge both for the software licence and the underlying Azure resource costs used to deliver the solution. *SaaS App offers* can be listed in both the *Azure Marketplace* and *AppSource*.
 
-*SaaS App Offers* support the *Transact* listing type. They also support *Trial* and *Get it now (Free)* listing types. *Get it now* enables either free access or for the publisher to take control of the licence & billing relationship themselves. The *SaaS App Offer* is the only offer type to support a *Contact Me* listing. A *Test drive* option is also available.
-
-Transact *SaaS App Offers* can be billed as either *flat rate* or *per user*. If *flat rate* is selected, this can optionally be combined with *metered billing* to provide greater billing flexibility. Both monthly and annual billing is available.
-
-Each plan can be created with a free trial option giving you the option to offer customers a 1 month period free of charge.
+For further information, see [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
 
 ## Next
 
