@@ -1,6 +1,8 @@
-# Introduction
+# Lab 3: Selecting your Offer Type
 
-Now you understand some of the key terminology and characteristics of the different offer types, it's time to determine which is best suited for your solution.
+## Introduction
+
+Now we are familiar with some of the key terminology and characteristics of the different offer types, it's time to determine which offer type is best suited for your solution.
 
 ## Selecting Your Offer Type
 
@@ -18,19 +20,17 @@ Your first decision point will likely be how the solution is deployed.
 
 Note the limitations in Lab 1 with respect to *Azure App Offers*. Solution templates are not directly transactable but can be made so by referencing *VM Offers*. Managed applications grant the customer limited access and require the solution to be managed on their behalf.
 
-## Prerequisites
-
-* An Azure subscription (required)
-* Azure CLI (required)
-* A [Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) with the appropriate permissions (some of the material can be completed without Partner Center access)
-
 ## Next
 
-* [Lab 3: Publishing a VM Offer](vmoffer.md)
-* [Lab 4: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
-* [Lab 5: Publishing an Azure Application - Managed Application Offer](managedapp.md)
-* [Lab 6: Publishing a SaaS Application Offer](saasapp.md)
+You have the option to choose the  appropriate offer type
+
+* [Lab 4: Publishing a VM Offer](lab4-vmoffer
+* .md)
+* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
+* [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp
+* .md)
+* [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
 
 ## Back
 
-* [Lab 1: Introduction to the commercial marketplace](readme.md)
+* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)

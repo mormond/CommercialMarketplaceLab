@@ -15,13 +15,13 @@ This lab will introduce you to some of the essential concepts and terminology of
 
 This lab introduces some fundamental concepts and how to choose the best offer type to match a particular solution. The accompanying labs will take you through the steps to create and publish an offer on the commercial marketplace.
 
-* [Lab 1: Introduction to the commercial marketplace](readme.md)
-* [Lab 2: Enroll in Partner Center to Publish Offers](partnercenter.md)
-* [Lab 3: Selecting your offer type](offertype.md)
-* [Lab 4: Publishing a VM Offer](vmoffer.md)
-* [Lab 5: Publishing an Azure Application Solution Template Offer](solutiontemplate.md)
-* [Lab 6: Publishing an Azure Application - Managed Application Offer](managedapp.md)
-* [Lab 7: Publishing a SaaS Application Offer](saasapp.md)
+* [Lab 1: Introduction to the Commercial Marketplace](readme.md)
+* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)
+* [Lab 3: Selecting your Offer Type](lab3-offertype.md)
+* [Lab 4: Publishing a VM Offer](lab4-vmoffer.md)
+* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
+* [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
+* [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
 
 ## Terminology
 
@@ -93,4 +93,6 @@ Transact *SaaS App Offers* can be billed as either *flat rate* or *per user*. If
 
 Each plan can be created with a free trial option giving you the option to offer customers a 1 month period free of charge.
 
-Next: [Selecting Your Offer Type](offertype.md)
+## Next
+
+* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)

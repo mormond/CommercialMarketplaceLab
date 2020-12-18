@@ -1,4 +1,4 @@
-# Partner Center
+# Lab 2: Enroll in Partner Center to Publish Offers
 
 ## Introduction
 
@@ -14,11 +14,11 @@ If your company is **not yet registered as a Microsoft Partner**, start by joini
 
 If your company is **already an MPN Member, but not enrolled in Partner Center**.
 
-[Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account)
+[Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
 
 If your company is **already enrolled in Partner Center but not in the Commercial Marketplace programme**.
 
-[Create an account using an existing Partner Center enrollment](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-partner-center-enrollments)
+[Create an account using an existing Partner Center enrollment](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#create-an-account-using-existing-partner-center-enrollments)
 
 The above may require someone authorized to act on behalf of the company and may take time to approve as business details are validated as part of the process.
 
@@ -26,15 +26,32 @@ The above may require someone authorized to act on behalf of the company and may
 
 In order to publish offers in the Commercial Marketplace your account will need to be assigned to a specific role. The **Developer** role is intended for offer publishing and management. Users with **Manager** and **Owner** roles can also publish and manage offers but they have much broader permissions and should only be used if necessary.
 
-[Define user roles and permissions](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions)
+[Define user roles and permissions](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions)
 
 ### Check your permissions
 
 1. To check you have the right permissions visit **Account Settings -> User Management**
 2. Search for your username in the users tab and confirm you have the "Developer" role assignment.
 
-![Check your role in Partner Center](images/partnercenter-developer-role-check.png)
+   ![Check your role in Partner Center](images/partnercenter-developer-role-check.png)
 
 3. As a final check, confirm you can create a **New Offer** on the **Commercial Marketplace -> Overview** tab
 
-![Create a new offer in Partner Center](images/partnercenter-new-offer.png)
+   ![Create a new offer in Partner Center](images/partnercenter-new-offer.png)
+
+## Useful Links
+
+* [Create a commercial marketplace account in Partner Center
+](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+* [Manage your commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)
+* [Microsoft Partner Portal](https://partner.microsoft.com/)
+* [Partner Center Homepage](https://partner.microsoft.com/dashboard/home)
+
+## Next
+
+* [Lab 3: Selecting Your Offer Type](lab3-offertype.md)
+
+## Back
+
+* [Lab 1: Introduction to the Commercial Marketplace](readme.md)
+  
