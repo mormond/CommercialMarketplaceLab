@@ -176,17 +176,22 @@ The first and simplest test is to confirm that we can create a new VM instance b
    User Storage Account Name | Name of the storage account where the VHD image is stored
    User Storage Container Name | Most likely the default `vhds`
    Dns Name For Public IP | Provide a DNS name for the public IP; must be lowercase
-   Admin User Name | Provide a username the administrator account for the new VM
-   Admin Password | Provide an administrator password for the new VM
+   Admin User Name | Set a username the administrator account for the new VM
+   Admin Password | Set an administrator password for the new VM
    OS Type | Leave as `Linux`
-   Subscription Id | Your Azure subscription ID
-   VM Size | Size of the virtual machine instance (defaults to Standard_B1s)
-   Public IP Address Name | Provide a name for the public IP address resource
+   Vm Size | Size of the virtual machine instance (defaults to `Standard_B1s`)
    Vm Name | Provide a name for the VM resource
-   Virtual Network Name | Provide a name for the virtual network resource
-   Nic Name | Provide a name for the network interface card resource
-   Vhd Url | URL of the VHD
+   Vhd Url | URL of the VHD Image we created above. This can be found on the blob details page. Navigate to: `storage account -> containers -> vhds -> VHD image blob name`
 
+   It is a good idea to create a new resource group for the test VM. However the deployment will fail if the target storage account for the new VHD is not the same account hosting the source VHD image. Either:
+   * use the account that was created in the previous steps of the lab (resulting in the new VM and its VHD being in different resource groups) or
+   * create a resource group and storage account and copy the VHD image to the new storage account before creating the VM in the same resource group
+
+   The first approach is simpler and adequate for the purposes of a test. Once finished testing you can delete the resource group and the new (specialised) VHD from the original storage account. Be careful not to delete the generalised VHD image.
+
+6. To finalise the test:
+   * confirm that browsing to the IP address of the new VM displays the NGINX welcome page
+   * ssh into the new VM and confirm the presence of a `/tmp/users.txt` file with a creation time matching the last reboot
 
 ## When creating a VM offer you will provide a SAS URL to the VHD
 

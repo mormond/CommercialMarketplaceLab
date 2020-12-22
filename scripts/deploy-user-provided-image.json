@@ -28,23 +28,11 @@
             ],
             "type": "String"
         },
-        "subscriptionId": {
-            "type": "String"
-        },
         "vmSize": {
             "type": "String",
             "defaultValue": "Standard_B1s"
         },
-        "publicIPAddressName": {
-            "type": "String"
-        },
         "vmName": {
-            "type": "String"
-        },
-        "virtualNetworkName": {
-            "type": "String"
-        },
-        "nicName": {
             "type": "String"
         },
         "vhdUrl": {
@@ -62,16 +50,18 @@
         "subnet1Prefix": "10.0.0.0/24",
         "subnet2Prefix": "10.0.1.0/24",
         "publicIPAddressType": "Dynamic",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+        "ipAddressName": "[concat('ip-',uniqueString(resourceGroup().id, deployment().name))]",
+        "vnetName":"[concat('vnet-',uniqueString(resourceGroup().id, deployment().name))]",
+        "nicName":"[concat('nic-',uniqueString(resourceGroup().id, deployment().name))]",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-        "hostDNSNameScriptArgument": "[concat(parameters('dnsNameForPublicIP'),'.', variables('location'),'.cloudapp.azure.com')]",
         "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
     },
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2015-06-15",
-            "name": "[parameters('publicIPAddressName')]",
+            "name": "[variables('ipAddressName')]",
             "location": "[variables('location')]",
             "properties": {
                 "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
@@ -83,7 +73,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2015-06-15",
-            "name": "[parameters('virtualNetworkName')]",
+            "name":"[variables('vnetName')]",
             "location": "[variables('location')]",
             "properties": {
                 "addressSpace": {
@@ -110,11 +100,11 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2015-06-15",
-            "name": "[parameters('nicName')]",
+            "name":"[variables('nicName')]",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+                "[concat('Microsoft.Network/publicIPAddresses/', variables('ipAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('vnetName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -123,7 +113,7 @@
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('ipAddressName'))]"
                             },
                             "subnet": {
                                 "id": "[variables('subnet1Ref')]"
@@ -139,7 +129,7 @@
             "name": "[parameters('vmName')]",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -167,7 +157,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
                         }
                     ]
                 }

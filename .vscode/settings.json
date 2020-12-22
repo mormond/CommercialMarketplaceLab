@@ -10,11 +10,20 @@
         "solutiontemplate",
         "transactable",
         "vmoffer",
-        "westeurope"
-    ],
-    "cSpell.ignoreWords": [
+        "westeurope",
+        "deallocate",
+        "finalise",
+        "generalise",
+        "generalised",
+        "licences",
+        "minimise",
+        "specialised",
+        "unmanaged",
+        "vhds",
         "azureuser",
         "fqdns",
         "marketplacevm"
+    ],
+    "cSpell.ignoreWords": [
     ]
 }
