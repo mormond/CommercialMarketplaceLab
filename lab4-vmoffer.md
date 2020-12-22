@@ -156,14 +156,45 @@ To create a reusable image, the operating system disk must be generalised. For L
    az vm deallocate --resource-group marketplace-vm-offer --name marketplacevm
    ```
 
-## Capture the disk and store as a VHD in a Storage Account
+We now have a generalised OS VHD for our Ubuntu based VM offer with a web server installed and a scheduled job on reboot which we can use to create new VMs.
+
+## Test the virtual machine image
+
+The first and simplest test is to confirm that we can create a new VM instance based on the VHD we created above. The following is based on the instructions [Test a virtual machine image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test) but with some modifications as I have found the provided script not to work for Linux images.
+
+1. Sign in to the Azure portal.
+2. On the home page, select Create a resource, search for “Template Deployment”, and select Create.
+3. Choose Build your own template in the editor.
+
+   ![Create VM from ARM Template](images/create-from-template.png)
+
+4. Copy and paste the JSON from [this file](scripts/deploy-user-provided-image.json) into the editor and hit **Save**
+5. You will need to provide parameter values for the following
+
+   Parameter | Comment
+   --- | ---
+   User Storage Account Name | Name of the storage account where the VHD image is stored
+   User Storage Container Name | Most likely the default `vhds`
+   Dns Name For Public IP | Provide a DNS name for the public IP; must be lowercase
+   Admin User Name | Provide a username the administrator account for the new VM
+   Admin Password | Provide an administrator password for the new VM
+   OS Type | Leave as `Linux`
+   Subscription Id | Your Azure subscription ID
+   VM Size | Size of the virtual machine instance (defaults to Standard_B1s)
+   Public IP Address Name | Provide a name for the public IP address resource
+   Vm Name | Provide a name for the VM resource
+   Virtual Network Name | Provide a name for the virtual network resource
+   Nic Name | Provide a name for the network interface card resource
+   Vhd Url | URL of the VHD
+
 
 ## When creating a VM offer you will provide a SAS URL to the VHD
 
 ## Useful Links
 
 * [How to create a virtual machine using an approved base](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base)
-
+* [Test a virtual machine image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test)
+  
 ## Next
 
 You have the option to choose the  appropriate offer type
