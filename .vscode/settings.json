@@ -9,6 +9,12 @@
         "saasapp",
         "solutiontemplate",
         "transactable",
-        "vmoffer"
+        "vmoffer",
+        "westeurope"
+    ],
+    "cSpell.ignoreWords": [
+        "azureuser",
+        "fqdns",
+        "marketplacevm"
     ]
 }
