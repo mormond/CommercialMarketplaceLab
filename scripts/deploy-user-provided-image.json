@@ -3,22 +3,22 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "userStorageAccountName": {
-            "type": "String"
+            "type": "string"
         },
         "userStorageContainerName": {
             "defaultValue": "vhds",
-            "type": "String"
+            "type": "string"
         },
         "dnsNameForPublicIP": {
-            "type": "String"
+            "type": "string"
         },
         "adminUserName": {
             "defaultValue": "azureuser",
-            "type": "String"
+            "type": "string"
         },
         "adminPassword": {
             "defaultValue": "",
-            "type": "SecureString"
+            "type": "securestring"
         },
         "osType": {
             "defaultValue": "linux",
@@ -26,17 +26,17 @@
                 "windows",
                 "linux"
             ],
-            "type": "String"
+            "type": "string"
         },
         "vmSize": {
-            "type": "String",
+            "type": "string",
             "defaultValue": "Standard_B1s"
         },
         "vmName": {
-            "type": "String"
+            "type": "string"
         },
         "vhdUrl": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "VHD Url..."
             }

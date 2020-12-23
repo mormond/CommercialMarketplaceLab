@@ -12,8 +12,8 @@ Transact *VM offers* are billed on a usage-based PAYG (Pay As You Go) model. Eac
 
 ## Prerequisites
 
-* An Azure subscription (required)
-* Azure CLI (required)
+* An Azure subscription (required) - see [here for free options](https://azure.microsoft.com/en-us/free/)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) (required) either via [CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) or [installed locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Overview
@@ -190,8 +190,29 @@ The first and simplest test is to confirm that we can create a new VM instance b
    The first approach is simpler and adequate for the purposes of a test. Once finished testing you can delete the resource group and the new (specialised) VHD from the original storage account. Be careful not to delete the generalised VHD image.
 
 6. To finalise the test:
-   * confirm that browsing to the IP address of the new VM displays the NGINX welcome page
-   * ssh into the new VM and confirm the presence of a `/tmp/users.txt` file with a creation time matching the last reboot
+   1. confirm that browsing to the IP address of the new VM displays the NGINX welcome page
+   2. ssh into the new VM and confirm the presence of a `/tmp/users.txt` file with a creation time matching the last reboot
+
+## Run validations on the virtual machine
+
+1. Prior to submitting for certification, you should run a set of validation tests against a VM created from the VHD image. We can use the VM we created in the previous step as a test.
+2. There are two ways to do this:
+   1. Use the Certification Test Tool for Azure Certified.
+
+      This is a Windows application that walks through the process of connecting to the VM, running a series of tests and producing a report. You can create a small Windows VM in Azure and install it on that to test. We will use this approach for the lab.
+   2. Use the Self-Test API
+
+      This is an API hosted in Azure. You send a POST request to the API with details of the machine to test and it returns a test report. You need to create an AAD app registration to authenticate with the API. You can [find more details here](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#how-to-use-powershell-to-consume-the-self-test-api). There is an excellent [walkthrough video here](https://arsenvlad.medium.com/using-self-test-api-to-validate-vm-images-for-publishing-in-azure-marketplace-e7ac2e0b4d6e) which also explains some of the gaps in the documentation.
+
+3. Install the Certification Test Tool for Azure Certified on a Windows Machine. [Download Link](https://www.microsoft.com/en-us/download/details.aspx?id=44299)
+4. Run the Certification Test Tool and enter the required information (test name, platform, auth type, DNS name for the VM to be tested etc)
+5. On completion you will be presented with a set of test results. Review the results and ensure you take any necessary action before submitting a final image for certification.
+
+   ![The VM test tool results](images/vm-test-tool.png)
+
+6. In this lab we will be submitting a VM offer to the marketplace but only to the preview stage for testing purposes. We will not submit for final certification.
+
+   While attention should be paid to the results of the report, it is not necessarily required to fix every issue for the purposes of completing the lab.
 
 ## When creating a VM offer you will provide a SAS URL to the VHD
 
