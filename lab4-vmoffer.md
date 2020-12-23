@@ -13,7 +13,7 @@ Transact *VM offers* are billed on a usage-based PAYG (Pay As You Go) model. Eac
 ## Prerequisites <!-- omit in toc -->
 
 * An Azure subscription (required) - see [here for free options](https://azure.microsoft.com/en-us/free/)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) (required) either via [CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) or [installed locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) (required) either via [Azure Cloud Shell in the Azure Portal](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) or [installed locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Overview <!-- omit in toc -->
@@ -37,7 +37,7 @@ There are numerous way we could create the VHD. In this lab we will use the Azur
 
 ### Create a VM using the Azure CLI <!-- omit in toc -->
 
-1. Create a new resource group using the Azure CLI
+1. Create a new resource group using the Azure CLI:
 
    ```bash
    az group create --name 'marketplace-vm-offer' --location 'westeurope'
@@ -61,7 +61,9 @@ There are numerous way we could create the VHD. In this lab we will use the Azur
 
 2. Create the VM
 
-   We will create an Ubuntu VM using a small machine size to minimise costs. It is important to create a VM with unmanaged disks as the base as this gives us direct access to the VHD which we will need to copy at a later stage. Generating ssh keys gives us a simple, secure way to connect to the VM.
+   We will create an Ubuntu VM using a small machine size to minimise costs. It is important to create a VM using unmanaged disks as the base. This gives us direct access to the VHD which we will need to copy at a later stage. Generating ssh keys gives us a simple, secure way to connect to the VM.
+
+   Create a new VM using the Azure CLI:
 
    ```bash
    az vm create \
@@ -93,13 +95,15 @@ There are numerous way we could create the VHD. In this lab we will use the Azur
 
 Before publishing  VM offer you must ensure you have updated the OS and all installed services with the latest security and maintenance patches.
 
-1. Firstly we have to connect to the VM. Use the `publicIpAddress` returned in the output above. This will use the private key file id_rsa stored in ~/.ssh to authenticate.
+1. Firstly we have to connect to the VM using ssh.
+
+   Use the `publicIpAddress` returned in the output above. This will use the private key file id_rsa stored in ~/.ssh to authenticate:
 
    ```bash
    ssh azureuser@13.93.44.158
    ```
 
-2. Run the following commands to install the latest updates
+2. Run the following commands on the VM to install the latest updates:
 
    ```bash
    sudo apt-get update && sudo apt-get upgrade -y
@@ -113,9 +117,9 @@ As we are only publishing a test and will not put this "live" into the marketpla
 
 ## Apply custom configuration and scheduled tasks as required
 
-To make things more realistic, we will add a web server and a startup task to our VM offer.
+To simulate a real workload, we will add a web server and a startup task to our VM offer.
 
-1. To install the NGINX web server, run the following command in the VM.
+1. To install the NGINX web server, run the following command in the VM:
 
    ```bash
    sudo apt-get -y install nginx
@@ -127,15 +131,17 @@ To make things more realistic, we will add a web server and a startup task to ou
    sudo crontab -e
    ```
 
-3. Add the following line at the end of the file.
+3. Add the following line at the end of the file:
 
    ```bash
    @reboot less /etc/passwd > /tmp/users.txt
    ```
 
+4. Save and exit the file.
+
    This will illustrate the use of a scheduled job by dumping the names of all user accounts to a file in the /tmp directory each time the VM reboots.
 
-   Once we have a VM offer to test we will be able to confirm the webserver displays a default page and there is a file called users.txt in the /tmp directory containing the names of all users including the admin username we specified.
+   When we test our VM we will be able to confirm the webserver displays a default page and there is a file called users.txt in the /tmp directory containing the names of all users including the admin username we specified on creation.
 
 ## Generalise the image
 
@@ -152,10 +158,12 @@ To create a reusable image, the operating system disk must be generalised. For L
 4. Stop and de-allocate the VM. Run the following command.
 
    ```bash
-   az vm deallocate --resource-group 'marketplace-vm-offer' --name 'marketplacevm'
+   az vm deallocate \
+      --resource-group 'marketplace-vm-offer' \
+      --name 'marketplacevm'
    ```
 
-We now have a generalised OS VHD for our Ubuntu based VM offer with a web server installed and a scheduled job on reboot which we can use to create new VMs.
+We now have a generalised OS VHD for our Ubuntu-based VM offer with a web server installed and a scheduled job on reboot. We can use this VHD image to create new (specialised) VMs.
 
 ## Test the virtual machine image
 
@@ -163,7 +171,7 @@ The first and simplest test is to confirm that we can create a new VM instance b
 
 1. Sign in to the Azure portal.
 2. On the home page, select Create a resource, search for “Template Deployment”, and select Create.
-3. Choose Build your own template in the editor.
+3. Choose "Build your own template in the editor".
 
    ![Create VM from ARM Template](images/create-from-template.png)
 
@@ -194,14 +202,14 @@ The first and simplest test is to confirm that we can create a new VM instance b
 
 ## Run validations on the virtual machine
 
-1. Prior to submitting for certification, you should run a set of validation tests against a VM created from the VHD image. We can use the VM we created in the previous step as a test.
+1. Prior to submitting for certification, you should run a set of validation tests against a VM created from the VHD image. We can use the VM we created in the previous step.
 2. There are two ways to do this:
-   1. Use the Certification Test Tool for Azure Certified.
+   1. Use the *Certification Test Tool for Azure Certified*
 
       This is a Windows application that walks through the process of connecting to the VM, running a series of tests and producing a report. You can create a small Windows VM in Azure and install it on that to test. We will use this approach for the lab.
-   2. Use the Self-Test API
+   2. Use the *Self-Test API*
 
-      This is an API hosted in Azure. You send a POST request to the API with details of the machine to test and it returns a test report. You need to create an AAD app registration to authenticate with the API. You can [find more details here](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#how-to-use-powershell-to-consume-the-self-test-api). There is an excellent [walkthrough video here](https://arsenvlad.medium.com/using-self-test-api-to-validate-vm-images-for-publishing-in-azure-marketplace-e7ac2e0b4d6e) which also explains some of the gaps in the documentation.
+      This is an API hosted in Azure. You send a POST request to the API with details of the machine to test and it returns a test report. You need to create an AAD app registration to authenticate with the API. You can [find more details here](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#how-to-use-powershell-to-consume-the-self-test-api). There is an excellent [walkthrough video here](https://arsenvlad.medium.com/using-self-test-api-to-validate-vm-images-for-publishing-in-azure-marketplace-e7ac2e0b4d6e) which also bridges some of the gaps in the documentation.
 
 3. Install the Certification Test Tool for Azure Certified on a Windows Machine. [Download Link](https://www.microsoft.com/en-us/download/details.aspx?id=44299)
 4. Run the Certification Test Tool and enter the required information (test name, platform, auth type, DNS name for the VM to be tested etc)
@@ -215,25 +223,25 @@ The first and simplest test is to confirm that we can create a new VM instance b
 
 ## Generate a SAS URL to the VHD Image
 
-The final thing to do is generate a SAS URL pointing to the generalised VHD image. We will use this as part of the technical configuration when we create our VM offer.
+The final thing to do is generate a SAS URL pointing to the generalised VHD image. We need to supply this as part of the technical configuration when we create our VM offer.
 
-1. We need to collect two parameters before we can generate the SAS signature. We'll store them in environment variables.
+1. We need to collect two parameters before we can generate the SAS signature. For convenience we'll store them in environment variables.
 
    Parameter | Comment
       --- | ---
-      connection-string | The connection string for the storage account where the VHD generalised image is stored. Navigate to the storage account and select `Access Keys` under `Settings`
-      name | Name of the VHD image itself. Navigate to the storage account then to `Containers` then `vhds` and copy the name of the **generalised VHD blob**
+      \<connection-string> | The connection string for the storage account where the VHD generalised image is stored. Navigate to the storage account and select `Access Keys` under `Settings`
+      \<vhd-name> | Name of the VHD image itself. Navigate to the storage account then to `Containers` then `vhds` and copy the name of the **generalised VHD blob**
 
 2. Set environment variables using Azure CLI
 
-   Modify the command below by substituting the parameter values you gathered above and submit via the Azure CLI.
+   Modify the command below by substituting the parameter values you gathered above and submit via the Azure CLI:
 
    ```bash
-   VHDNAME='<vhd-name>'
    CONNSTR='<connection-string>'
+   VHDNAME='<vhd-name>'
    ```
 
-3. Firstly we need the blob endpoint URL
+3. Firstly we need the blob endpoint URL:
 
    ```bash
    BASEURL=$(az storage blob url \
@@ -243,7 +251,7 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
       --output 'tsv')
    ```
 
-4. Then we need the SAS signature **at the container level**
+4. Then we need the SAS signature **at the container level**:
 
    ```bash
    START=$(date --date="yesterday" '+%Y-%m-%dT%H:%MZ')
@@ -258,7 +266,7 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
       --output 'tsv')
    ```
 
-5. Finally, combine the two results to get the full SAS URL
+5. Finally, combine the two results to get the full SAS URL:
 
    ```bash
    echo ${BASEURL}?${SASSIG}
@@ -266,7 +274,7 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
 
    Example output
 
-   ```text
+   ```http
    https://vhdstorage732682030108cd.blob.core.windows.net/vhds/osdisk_7326820301.vhd?st=2020-12-22T15%3A29Z&se=2021-01-23T15%3A29Z&sp=rl&sv=2018-11-09&sr=c&sig=V0OzA60J1JsknDnE7u6XtU0nk/icOV%2BmGqNigFmo9CI%3D
    ```
 
