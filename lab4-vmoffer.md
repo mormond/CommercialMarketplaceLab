@@ -1,6 +1,6 @@
-# Lab 4: Publishing a VM Offer
+# Lab 4: Publishing a VM Offer <!-- omit in toc -->
 
-## Introduction
+## Introduction <!-- omit in toc -->
 
 *Virtual Machine offers* are used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of a single VM. Anything more complex requires an *Azure Apps offer*.
 
@@ -10,23 +10,24 @@ When a customer 'purchases' a *VM offer*, the VM will be deployed into the custo
 
 Transact *VM offers* are billed on a usage-based PAYG (Pay As You Go) model. Each plan can be created with a free trial option giving you the option to offer customers a 1 / 3 / 6 month period with no licence fees.
 
-## Prerequisites
+## Prerequisites <!-- omit in toc -->
 
 * An Azure subscription (required) - see [here for free options](https://azure.microsoft.com/en-us/free/)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) (required) either via [CloudShell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) or [installed locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
-## Overview
+## Overview <!-- omit in toc -->
 
 In this lab we will create the technical assets required to publish a VM offer to the commercial marketplace. The high level steps required to do this are as follows:
 
-1. Create a VM to use as a base
-2. Configure the VM
-3. Perform security checks
-4. Apply any custom configuration and scheduled tasks as required
-5. Generalise the image
-6. Capture the disk and store as a VHD in a Storage Account
-7. When creating a VM offer you will provide a SAS URL to the VHD
+* [Create a VM to use as a base](#create-a-vm-to-use-as-a-base)
+* [Ensure the VM has latest updates applied](#ensure-the-vm-has-latest-updates-applied)
+* [Perform additional security checks](#perform-additional-security-checks)
+* [Apply custom configuration and scheduled tasks as required](#apply-custom-configuration-and-scheduled-tasks-as-required)
+* [Generalise the image](#generalise-the-image)
+* [Test the virtual machine image](#test-the-virtual-machine-image)
+* [Run validations on the virtual machine](#run-validations-on-the-virtual-machine)
+* [Generate a SAS URL to the VHD Image](#generate-a-sas-url-to-the-vhd-image)
 
 ## Create a VM to use as a base
 
@@ -34,12 +35,12 @@ We will create a VM using an approved base image. However it is also possible to
 
 There are numerous way we could create the VHD. In this lab we will use the Azure CLI. [Packer is a useful tool](https://azurecitadel.com/automation/packeransible/lab1/) for helping to automate the process.
 
-### Create a VM using the Azure CLI
+### Create a VM using the Azure CLI <!-- omit in toc -->
 
 1. Create a new resource group using the Azure CLI
 
    ```bash
-   az group create --name marketplace-vm-offer --location westeurope
+   az group create --name 'marketplace-vm-offer' --location 'westeurope'
    ```
 
    Example output
@@ -64,12 +65,12 @@ There are numerous way we could create the VHD. In this lab we will use the Azur
 
    ```bash
    az vm create \
-      --resource-group marketplace-vm-offer \
-      --name marketplacevm \
-      --image Canonical:UbuntuServer:18.04-LTS:latest \
-      --admin-username azureuser \
+      --resource-group 'marketplace-vm-offer' \
+      --name 'marketplacevm' \
+      --image 'Canonical:UbuntuServer:18.04-LTS:latest' \
+      --admin-username 'azureuser' \
       --generate-ssh-keys \
-      --size Standard_B1s \
+      --size 'Standard_B1s' \
       --use-unmanaged-disk
    ```
 
@@ -77,8 +78,6 @@ There are numerous way we could create the VHD. In this lab we will use the Azur
 
    ```json
       {
-         "
-         ": "",
          "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/marketplace-vm-offer/providers/Microsoft.Compute/virtualMachines/marketplacevm",
          "location": "westeurope",
          "macAddress": "00-0D-3A-20-E4-73",
@@ -112,7 +111,7 @@ When you publish a VM offer to the Azure Marketplace, you are required to mainta
 
 As we are only publishing a test and will not put this "live" into the marketplace we will skip these additional checks for the purposes of this lab.
 
-## Apply any custom configuration and scheduled tasks as required
+## Apply custom configuration and scheduled tasks as required
 
 To make things more realistic, we will add a web server and a startup task to our VM offer.
 
@@ -153,7 +152,7 @@ To create a reusable image, the operating system disk must be generalised. For L
 4. Stop and de-allocate the VM. Run the following command.
 
    ```bash
-   az vm deallocate --resource-group marketplace-vm-offer --name marketplacevm
+   az vm deallocate --resource-group 'marketplace-vm-offer' --name 'marketplacevm'
    ```
 
 We now have a generalised OS VHD for our Ubuntu based VM offer with a web server installed and a scheduled job on reboot which we can use to create new VMs.
@@ -273,18 +272,18 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
 
    Copy the output somewhere safe. You will need the SAS URL to publish the offer.
 
-## Useful Links
+## Useful Links <!-- omit in toc -->
 
 * [How to create a virtual machine using an approved base](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base)
 * [Test a virtual machine image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test)
 * [How to generate a SAS URI for a VM image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-get-sas-uri)
   
-## Next
+## Next <!-- omit in toc -->
 
 You have the option to choose the  appropriate offer type
 
 * [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
 
-## Back
+## Back <!-- omit in toc -->
 
 * [Lab 3: Selecting your Offer Type](lab3-offertype.md)
