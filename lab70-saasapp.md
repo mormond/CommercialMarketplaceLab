@@ -1,4 +1,4 @@
-# Lab 7: Publishing a SaaS Application Offer
+# Publish a SaaS Application Offer
 
 ## Introduction
 
@@ -14,7 +14,7 @@ Each plan can be created with a free trial option giving you the option to offer
 
 * An Azure subscription (required)
 * Azure CLI (required)
-* A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
+* A [Partner Center account](lab20-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Useful Links
 
@@ -22,4 +22,4 @@ Each plan can be created with a free trial option giving you the option to offer
 
 ## Back
 
-* [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
+* [Publish an Azure Application - Managed Application Offer](lab60-managedapp.md)

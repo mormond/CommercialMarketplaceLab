@@ -1,8 +1,8 @@
-# Lab 6: Publishing an Azure Application - Managed Application Offer
+# Publish an Azure Application Solution Template Offer
 
 ## Introduction
 
-The *managed application offer* is a type of *Azure App offer*.
+The *solution template offer* is a type of *Azure App offer*.
 
 *Azure Apps offers* are used to deploy and transact a more complex solution than a single VM. When a customer 'purchases' an *Azure Apps offer*, the solution will be deployed into the customer's Azure subscription. As a consequence, *Azure Apps offers* can only be published in *Azure Marketplace* (not *AppSource*).
 
@@ -18,7 +18,7 @@ The *Azure Apps offer* has two distinct flavours; *solution template* and *manag
 
 * An Azure subscription (required)
 * Azure CLI (required)
-* A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
+* A [Partner Center account](lab20-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Useful Links
 
@@ -28,8 +28,8 @@ The *Azure Apps offer* has two distinct flavours; *solution template* and *manag
 
 You have the option to choose the  appropriate offer type
 
-* [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
+* [Publish an Azure Application - Managed Application Offer](lab60-managedapp.md)
 
 ## Back
 
-* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
+* [Publish a VM Offer](lab40-vmoffer.md)

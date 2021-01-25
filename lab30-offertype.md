@@ -1,4 +1,4 @@
-# Lab 3: Selecting your Offer Type
+# Select your Offer Type
 
 ## Introduction
 
@@ -18,7 +18,7 @@ Your first decision point will likely be how the solution is deployed.
   * If the customer will be responsible the best match is an *Azure App offer - Solution Template*.
   * If the customer wants it to be managed on their behalf it will be an *Azure App offer - Managed Application*.
 
-Note the limitations in Lab 1 with respect to *Azure App offers*. Solution templates are not directly transactable but can be made so by referencing *VM offers*. Managed applications grant the customer limited access and require the solution to be managed on their behalf.
+Note the limitations in the introduction with respect to *Azure App offers*. Solution templates are not directly transactable but can be made so by referencing *VM offers*. Managed applications grant the customer limited access and require the solution to be managed on their behalf.
 
 ## Useful Links
 
@@ -29,11 +29,11 @@ Note the limitations in Lab 1 with respect to *Azure App offers*. Solution templ
 
 You have the option to choose the  appropriate offer type
 
-* [Lab 4: Publishing a VM Offer](lab4-vmoffer.md)
-* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
-* [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
-* [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
+* [Publish a VM Offer](lab40-vmoffer.md)
+* [Publish an Azure Application Solution Template Offer](lab50-solutiontemplate.md)
+* [Publish an Azure Application - Managed Application Offer](lab60-managedapp.md)
+* [Publish a SaaS Application Offer](lab70-saasapp.md)
 
 ## Back
 
-* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)
+* [Enroll in Partner Center to Publish Offers](lab20-partnercenter.md)

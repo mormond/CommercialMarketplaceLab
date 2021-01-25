@@ -1,4 +1,4 @@
-# Lab 2: Enroll in Partner Center to Publish Offers
+# Enroll in Partner Center to Publish Offers
 
 ## Introduction
 
@@ -49,9 +49,9 @@ In order to publish offers in the Commercial Marketplace your account will need 
 
 ## Next
 
-* [Lab 3: Selecting Your Offer Type](lab3-offertype.md)
+* [Select Your Offer Type](lab30-offertype.md)
 
 ## Back
 
-* [Lab 1: Introduction to the Commercial Marketplace](readme.md)
+* [Introduction to the Commercial Marketplace](readme.md)
   

@@ -1,4 +1,4 @@
-# Lab 4: Publishing a VM Offer <!-- omit in toc -->
+# Publish a VM Offer <!-- omit in toc -->
 
 ## Introduction <!-- omit in toc -->
 
@@ -14,7 +14,7 @@ Transact *VM offers* are billed on a usage-based PAYG (Pay As You Go) model. Eac
 
 * An Azure subscription (required) - see [here for free options](https://azure.microsoft.com/en-us/free/)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) (required) either via [Azure Cloud Shell in the Azure Portal](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) or [installed locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-* A [Partner Center account](lab2-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
+* A [Partner Center account](lab20-partnercenter.md) with the appropriate permissions (some of the material can be completed without Partner Center access)
 
 ## Overview <!-- omit in toc -->
 
@@ -290,8 +290,8 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
 
 You have the option to choose the  appropriate offer type
 
-* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
+* [Publish an Azure Application Solution Template Offer](lab50-solutiontemplate.md)
 
 ## Back <!-- omit in toc -->
 
-* [Lab 3: Selecting your Offer Type](lab3-offertype.md)
+* [Select your Offer Type](lab30-offertype.md)

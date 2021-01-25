@@ -15,13 +15,13 @@ This lab will introduce you to some of the essential concepts and terminology of
 
 This lab introduces some fundamental concepts and how to choose the best offer type to match a particular solution. The accompanying labs will take you through the steps to create and publish an offer on the commercial marketplace.
 
-* [Lab 1: Introduction to the Commercial Marketplace](readme.md)
-* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)
-* [Lab 3: Selecting your Offer Type](lab3-offertype.md)
-* [Lab 4: Publishing a VM Offer](lab4-vmoffer.md)
-* [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
-* [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
-* [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
+* [Introduction to the Commercial Marketplace](readme.md)
+* [Enroll in Partner Center](lab20-partnercenter.md)
+* [Select your Offer Type](lab30-offertype.md)
+* [Publish a VM Offer](lab40-vmoffer.md)
+* [Publish an Azure Application Solution Template Offer](lab50-solutiontemplate.md)
+* [Publish an Azure Application - Managed Application Offer](lab60-managedapp.md)
+* [Publish a SaaS Application Offer](lab70-saasapp.md)
 
 ## Terminology
 
@@ -65,7 +65,7 @@ In these labs we will focus on three main offer types; **Virtual Machine**, **Az
 
 The *Virtual Machine offer* (or *VM offer*) is used to deploy and transact a virtual machine (VM) instance through Marketplace. The solution must consist of a single VM. Anything more complex requires an *Azure Apps offer*. *Virtual Machine offers* can only be listed in *Azure Marketplace*, not *AppSource*.
 
-For further information, see [Lab 4: Publishing a VM Offer](lab4-vmoffer.md)
+For further information, see [Publish a VM Offer](lab40-vmoffer.md)
 
 ## Azure Apps Offer
 
@@ -75,18 +75,18 @@ The *Azure Apps offer* has two distinct flavours; *solution template* and *manag
 
 * The *solution template* offer is a collection of Azure resources described by an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) which will be deployed into the customer subscription. It is not directly transact-capable but it can deploy *VM offers* which are transactable.
 
-   For further information, see [Lab 5: Publishing an Azure Application Solution Template Offer](lab5-solutiontemplate.md)
+   For further information, see [Publish an Azure Application Solution Template Offer](lab50-solutiontemplate.md)
 
 * The *[managed app](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview)* offer is a collection of Azure resources described by an [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) deployed into the customer subscription to be operated as a managed service.
 
-   For further information, see [Lab 6: Publishing an Azure Application - Managed Application Offer](lab6-managedapp.md)
+   For further information, see [Publish an Azure Application - Managed Application Offer](lab60-managedapp.md)
 
 ## SaaS App Offer
 
 The *SaaS App offer* differs from the *Virtual Machine offer* and *Azure App offer* as no resources are deployed in the customer subscription. As such, the publisher must charge both for the software licence and the underlying Azure resource costs used to deliver the solution. *SaaS App offers* can be listed in both the *Azure Marketplace* and *AppSource*.
 
-For further information, see [Lab 7: Publishing a SaaS Application Offer](lab7-saasapp.md)
+For further information, see [Publish a SaaS Application Offer](lab70-saasapp.md)
 
 ## Next
 
-* [Lab 2: Enroll in Partner Center to Publish Offers](lab2-partnercenter.md)
+* [Enroll in Partner Center to Publish Offers](lab20-partnercenter.md)
