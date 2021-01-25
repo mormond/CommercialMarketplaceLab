@@ -28,6 +28,7 @@ In this lab we will create the technical assets required to publish a VM offer t
 * [Test the virtual machine image](#test-the-virtual-machine-image)
 * [Run validations on the virtual machine](#run-validations-on-the-virtual-machine)
 * [Generate a SAS URL to the VHD Image](#generate-a-sas-url-to-the-vhd-image)
+* [Publish the Offer in Partner Center](#publish-the-offer-in-partner-center)
 
 ## Create a VM to use as a base
 
@@ -278,7 +279,50 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
    https://vhdstorage732682030108cd.blob.core.windows.net/vhds/osdisk_7326820301.vhd?st=2020-12-22T15%3A29Z&se=2021-01-23T15%3A29Z&sp=rl&sv=2018-11-09&sr=c&sig=V0OzA60J1JsknDnE7u6XtU0nk/icOV%2BmGqNigFmo9CI%3D
    ```
 
-   Copy the output somewhere safe. You will need the SAS URL to publish the offer.
+   **Copy the output somewhere safe**. You will need the SAS URL to publish the offer.
+
+## Publish the Offer in Partner Center
+
+* Some basic familiarity with Partner Center publishing is assumed
+  * Refer to [How to create a virtual machine offer on Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create)
+* We are only going to do a "Preview" publish so we can keep the listing details to a minimum
+  * You need only enter required fields
+  * For required fields you can enter minimal text
+  * Make sure you hit "Save draft" before moving away from a page
+* Follow the offer setup process
+  * "Offer setup"
+    * Be sure to select "Yes, I would like to sell through Microsoft..."
+    * You will need a destination for customer leads - you can use an Azure Table
+  * Properties
+    * Select categories, industries etc
+  * Offer Listing
+    * Complete minimal details for Name, Search results, Description, Getting started etc
+    * For privacy policy use any valid URL (eg https://www.bing.com)
+    * Enter contact info
+    * For Supporting documents you can upload [this blank document](assets/BlankDocument.pdf)
+    * For Marketplace media logos you can upload [this asset](assets/vm-offer.png)
+  * Preview Audience
+    * Add the subscription IDs for all subscriptions for which the preview offer should be available
+  * Plan Overview
+    * Create a new plan and add minimal details to the Plan listing
+    * For Pricing and availability, the defaults should have been enabled for publishing in most markets. Set a price of 0 USD/hour to ensure you are not charged for anything other than the VM itself.
+    * Leave the plan as No Trial, Public, not hidden
+    * Technical Configuration
+      * Select Linux as the OS and Ubuntu as the Vendor
+      * Set the OS friendly name to "Ubuntu1804lts"
+      * In Open ports, allow traffic to port 80 mapped to port 80 for TCP
+      * Set the Generation type to "Generation 1"
+      * Under VM images set the Disk version to "1.0.0"
+      * Select SAS URI as the method to provide the image
+      * Paste the SAS URI you saved in the previous step into the SAS URI field
+    * Co-sell with Microsoft
+      * You can skip this tab
+    * Resell through CSPs
+      * Select "Any partner in the CSP program"
+    * Review and Publish
+      * You will be prompted if any required fields need attention
+      * Publish and wait for ingestion to take place
+      * Preview links will become available after a few hours
 
 ## Useful Links <!-- omit in toc -->
 
