@@ -337,6 +337,7 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
 * [How to create a virtual machine using an approved base](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create-using-approved-base)
 * [Test a virtual machine image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test)
 * [How to generate a SAS URI for a VM image](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-get-sas-uri)
+* [How to create a virtual machine offer on Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-create)
   
 ## Next <!-- omit in toc -->
 
