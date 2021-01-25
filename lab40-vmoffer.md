@@ -29,6 +29,7 @@ In this lab we will create the technical assets required to publish a VM offer t
 * [Run validations on the virtual machine](#run-validations-on-the-virtual-machine)
 * [Generate a SAS URL to the VHD Image](#generate-a-sas-url-to-the-vhd-image)
 * [Publish the Offer in Partner Center](#publish-the-offer-in-partner-center)
+* [Cleanup Resources](#cleanup-resources)
 
 ## Create a VM to use as a base
 
@@ -183,7 +184,7 @@ The first and simplest test is to confirm that we can create a new VM instance b
    --- | ---
    User Storage Account Name | Name of the storage account where the VHD image is stored
    User Storage Container Name | Most likely the default `vhds`
-   Dns Name For Public IP | Provide a DNS name for the public IP; must be lowercase
+   Dns Name For Public IP | Provide a DNS name for the public IP; must be lowercase and must be globally unique
    Admin User Name | Set a username the administrator account for the new VM
    Admin Password | Set an administrator password for the new VM
    OS Type | Leave as `Linux`
@@ -297,7 +298,7 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
     * Select categories, industries etc
   * Offer Listing
     * Complete minimal details for Name, Search results, Description, Getting started etc
-    * For privacy policy use any valid URL (eg https://www.bing.com)
+    * For privacy policy use any valid URL (eg https[]()://www.bing.com)
     * Enter contact info
     * For Supporting documents you can upload [this blank document](assets/BlankDocument.pdf)
     * For Marketplace media logos you can upload [this asset](assets/vm-offer.png)
@@ -305,8 +306,10 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
     * Add the subscription IDs for all subscriptions for which the preview offer should be available
   * Plan Overview
     * Create a new plan and add minimal details to the Plan listing
-    * For Pricing and availability, the defaults should have been enabled for publishing in most markets. Set a price of 0 USD/hour to ensure you are not charged for anything other than the VM itself.
-    * Leave the plan as No Trial, Public, not hidden
+    * Pricing and availability
+      * The defaults should have been enabled for publishing in most markets
+      * Use a usage-based monthly billed plan and set a price of 0 USD/hour to ensure you are not charged for anything other than the VM itself.
+      * Leave the plan as No Trial, Public, not hidden
     * Technical Configuration
       * Select Linux as the OS and Ubuntu as the Vendor
       * Set the OS friendly name to "Ubuntu1804lts"
@@ -315,14 +318,19 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
       * Under VM images set the Disk version to "1.0.0"
       * Select SAS URI as the method to provide the image
       * Paste the SAS URI you saved in the previous step into the SAS URI field
-    * Co-sell with Microsoft
-      * You can skip this tab
-    * Resell through CSPs
-      * Select "Any partner in the CSP program"
-    * Review and Publish
-      * You will be prompted if any required fields need attention
-      * Publish and wait for ingestion to take place
-      * Preview links will become available after a few hours
+  * Co-sell with Microsoft
+    * You can skip this tab
+  * Resell through CSPs
+    * Select "Any partner in the CSP program"
+  * Review and Publish
+    * You will be prompted if any required fields need attention
+    * Publish and wait for ingestion to take place
+    * Preview links will become available after a few hours
+
+## Cleanup Resources
+
+* You can delete the resource group you created in the step [Test the virtual machine image](#test-the-virtual-machine-image)
+* Once publishing is complete, you can delete resource group 'marketplace-vm-offer' which contains the original virtual machine and storage account containing vhds
 
 ## Useful Links <!-- omit in toc -->
 

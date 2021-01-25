@@ -3,6 +3,7 @@
         "azureuser",
         "byol",
         "connstr",
+        "csps",
         "deallocate",
         "finalise",
         "fqdns",
