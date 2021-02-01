@@ -298,7 +298,9 @@ The final thing to do is generate a SAS URL pointing to the generalised VHD imag
     * Select categories, industries etc
   * Offer Listing
     * Complete minimal details for Name, Search results, Description, Getting started etc
+      <!-- markdownlint-disable MD042 -->
     * For privacy policy use any valid URL (eg https[]()://www.bing.com)
+      <!-- markdownlint-enable MD042 -->
     * Enter contact info
     * For Supporting documents you can upload [this blank document](assets/BlankDocument.pdf)
     * For Marketplace media logos you can upload [this asset](assets/vm-offer.png)
