@@ -1,3 +1,7 @@
+# Redirect
+
+This lab is now hosted at [Azure Citadel](https://www.azurecitadel.com/marketplace/)
+
 # Introduction
 
 Microsoft's commercial marketplace is a catalog of solutions and services from our partner network. Microsoft partners can use Partner Center to create, publish and manage their solutions and services offerings in the commercial marketplace. Solutions are listed in Microsoft's online stores, alongside Microsoft's own solutions, connecting you with businesses, organizations, and government agencies around the world.
